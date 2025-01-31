@@ -2,7 +2,7 @@
 
 // These variables are needed to access the Ollama Models
 Uri modelEndpoint = new("http://localhost:11434");
-string modelName = "deepseek-r1";
+string modelName = "deepseek-r1:1.5b";
 
 // Initialize the chat client using OllamaChatClient - everything else the same!
 IChatClient chatClient = new OllamaChatClient(modelEndpoint, modelName);
