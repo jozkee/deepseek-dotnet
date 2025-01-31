@@ -8,15 +8,15 @@ var builder = new ConfigurationBuilder()
 
 var configuration = builder.Build();
 
-// Make sure the GitHub token is set in the user secrets
-string token = configuration["GH_TOKEN"] ??
-    throw new InvalidOperationException("Make sure to add GH_TOKEN value to the user secrets.");
+// If running locally, make sure to add GITHUB_TOKEN value to the user secrets.
+// If you're in codespaces, it'll be taken care of for you.
+string token = configuration["GITHUB_TOKEN"] ??
+    throw new InvalidOperationException("Make sure to add GITHUB_TOKEN value to the user secrets.");
 
 // These variables are needed to access the GitHub Models
 AzureKeyCredential credential = new(token);
 Uri modelEndpoint = new("https://models.inference.ai.azure.com");
 string modelName = "DeepSeek-R1";
-
 
 IChatClient chatClient = new ChatCompletionsClient(modelEndpoint, credential)
     .AsChatClient(modelName);
