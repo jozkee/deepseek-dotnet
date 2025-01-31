@@ -11,7 +11,8 @@ var configuration = builder.Build();
 // If running locally, make sure to add GITHUB_TOKEN value to the user secrets.
 // If you're in codespaces, it'll be taken care of for you.
 string token = configuration["GITHUB_TOKEN"] ??
-    throw new InvalidOperationException("Make sure to add GITHUB_TOKEN value to the user secrets.");
+    Environment.GetEnvironmentVariable("GITHUB_TOKEN") ??
+    throw new InvalidOperationException("Make sure to add GITHUB_TOKEN value to the user secrets or environment variables.");
 
 // These variables are needed to access the GitHub Models
 AzureKeyCredential credential = new(token);
