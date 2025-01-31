@@ -9,12 +9,12 @@ var builder = new ConfigurationBuilder()
 var configuration = builder.Build();
 
 // Make sure the GitHub token is set in the user secrets
-string token = configuration["GH_TOKEN"] ?? 
+string token = configuration["GH_TOKEN"] ??
     throw new InvalidOperationException("Make sure to add GH_TOKEN value to the user secrets.");
 
 // These variables are needed to access the GitHub Models
 AzureKeyCredential credential = new(token);
-Uri modelEndpoint = new ("https://models.inference.ai.azure.com");
+Uri modelEndpoint = new("https://models.inference.ai.azure.com");
 string modelName = "DeepSeek-R1";
 
 
