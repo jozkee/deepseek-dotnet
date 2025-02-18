@@ -48,12 +48,12 @@ You don't need the cloud involved to create a .NET application to access DeepSee
 
 The Codespace will download the Ollama image and start it up as a container inside your devcontainer. Then it will pull a distilled version of the R1 model. For our purposes, distilled means smaller.
 
-Once the devcontainer/Codespace finishes provisioning checkout **Program.cs** from the **DeepSeek.Console.Ollama** project. It has a different NuGet installed **Microsoft.Extensions.AI.Ollama**.
+Once the devcontainer/Codespace finishes provisioning checkout **Program.cs** from the **DeepSeek.Console.Ollama** project. It has a different NuGet installed **OllamaSharp**.
 
 And to initialize the `IClient` interface:
 
 ```csharp
-IChatClient chatClient = new OllamaChatClient(modelEndpoint, modelName);
+IChatClient chatClient = new OllamaApiClient(modelEndpoint, modelName);
 ```
 
 ## Summary
