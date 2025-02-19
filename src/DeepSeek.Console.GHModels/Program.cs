@@ -23,7 +23,7 @@ IChatClient chatClient = new ChatCompletionsClient(modelEndpoint, credential)
     .AsChatClient(modelName);
 
 string question = "If I have 3 apples and eat 2, how many bananas do I have?";
-var response = chatClient.CompleteStreamingAsync(question);
+var response = chatClient.GetStreamingResponseAsync(question);
 
 Console.WriteLine($">>> User: {question}");
 Console.Write(">>>");
