@@ -19,7 +19,7 @@ string modelName = "GET THIS VALUE FROM YOUR DEPLOYMENT IN AZURE AI FOUNDRY";
 
 
 IChatClient chatClient = new ChatCompletionsClient(modelEndpoint, credential)
-    .AsChatClient(modelName);
+    .AsIChatClient(modelName);
 
 string question = "If I have 3 apples and eat 2, how many bananas do I have?";
 var response = chatClient.GetStreamingResponseAsync(question);
